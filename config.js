@@ -1,2 +1,5 @@
-// Konfigurace Supabase. Vyplňte veřejnou URL projektu a anon/publishable key.
-window.LHOTA_CONFIG = { url: '', anonKey: '' };
+// Veřejná konfigurace aplikace. Nikdy sem nevkládejte secret/service_role klíč.
+window.LHOTA_CONFIG = {
+  url: 'https://eanzscwpjlwfxexlqkaq.supabase.co',
+  anonKey: 'sb_publishable_pmAItPqwi39Jy9xyXVRetA_z2QjFQS5'
+};
