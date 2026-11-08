@@ -1,0 +1,20 @@
+{
+  "id": "/kalendar-dlouha-lhota/",
+  "name": "Kalendář akcí Dlouhá Lhota",
+  "short_name": "Dlouhá Lhota",
+  "description": "Přehled obecních akcí a setkání v Dlouhé Lhotě u Tábora",
+  "lang": "cs",
+  "start_url": "/kalendar-dlouha-lhota/",
+  "scope": "/kalendar-dlouha-lhota/",
+  "display": "standalone",
+  "background_color": "#f3f7f5",
+  "theme_color": "#117a72",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
