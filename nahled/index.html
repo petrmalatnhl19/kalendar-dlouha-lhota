@@ -312,6 +312,28 @@ button:focus-visible{outline:3px solid var(--community-honey);outline-offset:2px
  #detailFooter .detail-actions button{font-size:12px;min-height:46px;padding:8px 5px}
 }
 @media(max-width:350px){#detailFooter .detail-actions{grid-template-columns:1fr}#detailFooter .detail-actions button{min-height:40px}}
+
+/* Community polish v6 — mobile event list: no blank poster frames, tighter actions */
+#events .item{display:grid;grid-template-columns:108px minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:12px;row-gap:0;align-items:start;padding:14px 0}
+#events .item .event-thumb{grid-column:1;grid-row:1 / 4;display:block;width:108px;height:auto;max-height:152px;object-fit:contain;object-position:top center;background:transparent;border:1px solid #e3ebe5;border-radius:12px;box-shadow:0 3px 11px #1b483112;margin:0}
+#events .item .date{grid-column:2;grid-row:1;display:inline-flex;align-items:baseline;justify-self:start;gap:5px;min-width:0;padding:4px 8px;margin:0}
+#events .item .date strong{font-size:15px}
+#events .item .date small{font-size:10px}
+#events .item .grow{grid-column:2;grid-row:2;margin-top:6px;min-width:0}
+#events .item .grow h3{font-size:15px;line-height:1.3;margin:3px 0}
+#events .item .grow p{font-size:12px;line-height:1.35;margin:0}
+#events .item>button{grid-column:2;grid-row:3;justify-self:start;align-self:start;margin:7px 0 0;padding:7px 12px;min-height:35px;font-size:13px}
+#events .item:not(:has(.event-thumb)){grid-template-columns:1fr}
+#events .item:not(:has(.event-thumb)) .date,#events .item:not(:has(.event-thumb)) .grow,#events .item:not(:has(.event-thumb))>button{grid-column:1}
+@media(max-width:480px){
+ header{padding-bottom:34px}
+ header p{margin-top:5px}
+ #events .item{grid-template-columns:104px minmax(0,1fr);column-gap:10px;padding:12px 0}
+ #events .item .event-thumb{width:104px;max-height:142px}
+ #events .item .grow h3{font-size:14px}
+ #events .item .grow p{font-size:12px}
+}
+@media(max-width:360px){#events .item{grid-template-columns:88px minmax(0,1fr);column-gap:9px}#events .item .event-thumb{width:88px;max-height:128px}}
 </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota žije!</h1><p>Objevte, co se u nás chystá. Akce a setkání na jednom místě.</p></div></header><main>
 <nav class="quick-nav" aria-label="Rychlá navigace"><button type="button" id="goCalendar">📅 Kalendář</button><button type="button" id="goEvents">🎉 Akce</button></nav>
 <div class="next-event" id="nextEvent" hidden aria-live="polite"><div class="next-copy"><div class="next-label">Nejbližší akce</div><div class="next-title" id="nextEventTitle"></div><div class="next-date" id="nextEventDate"></div></div><button type="button" id="nextEventDetail">Detail</button></div>
