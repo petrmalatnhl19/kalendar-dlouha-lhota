@@ -120,6 +120,23 @@ button:hover{background:#e0eee5}
  .item{padding:10px 0}
 }
 @media(max-width:370px){.day{min-height:33px;font-size:12px}.panel{padding:12px}.bar h2{font-size:17px}}
+
+/* Náhled v4: přehledné informační karty událostí */
+@media(max-width:680px){
+ .item{grid-template-columns:76px minmax(0,1fr);grid-template-rows:auto auto;gap:5px 12px;align-items:start;padding:13px 0}
+ .item .event-thumb{grid-column:1;grid-row:1/3;width:76px;height:106px;object-fit:cover;object-position:top;border-radius:12px}
+ .item .date{grid-column:2;grid-row:1;justify-self:start;display:flex;align-items:center;gap:5px;padding:3px 8px;margin:0}
+ .item .grow{grid-column:2;grid-row:2;min-width:0;align-self:start}
+ .item .grow h3{font-size:15px;line-height:1.27;margin:5px 0 5px;font-weight:800}
+ .item .grow p{font-size:12px;line-height:1.45;overflow-wrap:anywhere}
+ .item .tag{font-size:10px;line-height:1.4}
+ .item>button{grid-column:2;grid-row:3;justify-self:start;margin:2px 0 0;min-height:33px;padding:6px 13px}
+}
+@media(min-width:681px){
+ .item{grid-template-columns:86px 66px minmax(0,1fr) auto}
+ .item .grow h3{margin:6px 0}
+}
+@media(max-width:355px){.item{grid-template-columns:62px minmax(0,1fr);gap:5px 9px}.item .event-thumb{width:62px;height:92px}}
 </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota</h1><p>Akce a setkání v naší obci na jednom místě.</p></div></header><main>
 <section class="panel"><div class="bar"><h2 id="month"></h2><div><button id="prev" aria-label="Předchozí měsíc">‹</button><button id="now">Dnes</button><button id="next" aria-label="Následující měsíc">›</button></div></div><div class="week"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div><div class="days" id="days"></div></section>
 <section class="panel"><div class="bar events-head"><h2 id="heading">Nadcházející akce</h2><button id="all">Zrušit výběr</button></div><div class="filterbar"><label for="categoryFilter">Zobrazit</label><select id="categoryFilter"><option value="">Všechny kategorie</option><option>Kultura</option><option>Sport</option><option>Obecní</option><option>Pro děti</option><option>Ostatní</option><option>Tvoření</option><option>Obecní akce</option><option>SDH</option></select><span id="eventCount" aria-live="polite"></span></div><div id="events"></div></section>
