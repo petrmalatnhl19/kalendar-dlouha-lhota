@@ -22,7 +22,80 @@ header{padding:23px 18px 42px}header h1{letter-spacing:-.035em}header p{margin:8
 .events-head+.filterbar{margin-top:6px;padding-top:5px}.filterbar{padding-bottom:9px}.install-panel{padding:12px 15px}.install-panel #installTip{font-size:13px}.footer-admin{max-width:920px;width:calc(100% - 32px);margin:0 auto 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:12px 5px;color:#718783;font-size:12px}.footer-admin button{font-size:12px;padding:7px 10px;background:transparent;color:#55736e}.footer-admin #admin{width:100%;display:flex;gap:8px;justify-content:flex-end}.footer-admin #admin[hidden]{display:none}.footer-admin #admin .primary{background:#117a72;color:#fff}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}#editor input[type=file]{padding:10px;background:#eef6f2}
 .install-panel .bar{justify-content:flex-start}.install-panel .bar>div{flex:1}.install-panel #installNow{background:#117a72;color:#fff}.install-panel button{white-space:nowrap}@media(max-width:440px){.install-panel .bar>div{flex-basis:100%}}
 #auth{width:min(440px,calc(100% - 28px));max-height:90dvh;overflow:auto}#auth h2{margin-bottom:7px}.google-auth{width:100%;background:#fff;border:1px solid #b7cbc5;color:#234747;padding:13px;margin:13px 0;font-weight:700}.auth-divider{text-align:center;font-size:13px;color:#718783;margin:5px 0 15px}.auth-tabs{display:flex;gap:5px;background:#edf5f2;padding:5px;border-radius:12px;margin-bottom:14px}.auth-tabs button{flex:1;background:transparent;font-size:14px}.auth-tabs .selected{background:#fff;box-shadow:0 2px 8px #163f3917}.auth-note{font-size:12px;line-height:1.5;margin-top:13px}#confirmWrap[hidden]{display:none}
- .event-thumb{width:78px;height:92px;object-fit:contain;background:#f3f7f5;border-radius:10px;flex:none;border:1px solid #dce8e5}.item{flex-wrap:wrap}.item .grow{min-width:145px;flex:1}.item>button{margin-left:auto}@media(max-width:480px){.event-thumb{width:58px;height:76px}.item{gap:9px}.item h3{font-size:1rem}}  .footer-admin,.install-panel{display:none!important}header small::after{content:' · TESTOVACÍ NÁHLED';font-weight:700;color:#ffe7a5} </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota</h1><p>Akce a setkání v naší obci na jednom místě.</p></div></header><main>
+ .event-thumb{width:78px;height:92px;object-fit:contain;background:#f3f7f5;border-radius:10px;flex:none;border:1px solid #dce8e5}.item{flex-wrap:wrap}.item .grow{min-width:145px;flex:1}.item>button{margin-left:auto}@media(max-width:480px){.event-thumb{width:58px;height:76px}.item{gap:9px}.item h3{font-size:1rem}}  .footer-admin,.install-panel{display:none!important}header small::after{content:' · TESTOVACÍ NÁHLED';font-weight:700;color:#ffe7a5} 
+/* Náhled 2.0 — čistý obecní design, pouze testovací stránka */
+:root{--ink:#18332e;--muted:#61756f;--accent:#176e58;--accent-soft:#e7f3eb;--line:#e5ece7;--canvas:#f6f8f5}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--canvas);color:var(--ink);line-height:1.45}
+header{position:relative;overflow:hidden;background:linear-gradient(116deg,#153d34 0%,#176e58 65%,#338f70 100%);padding:34px 20px 76px}
+header::before{content:"";position:absolute;width:350px;height:350px;border:1px solid #ffffff24;border-radius:50%;right:-135px;top:-200px;box-shadow:0 0 0 55px #ffffff08,0 0 0 120px #ffffff08;pointer-events:none}
+header>div{position:relative;z-index:1}
+header small{display:inline-block;font-size:11px;letter-spacing:.12em;font-weight:800;color:#d8f3e4}
+header small::after{content:"  ·  TESTOVACÍ VERZE";color:#ffe3a0}
+header h1{font-size:clamp(34px,7vw,55px);line-height:1.08;letter-spacing:-.055em;margin:14px 0 10px;font-weight:800}
+header p{font-size:clamp(14px,2.5vw,17px);max-width:480px;color:#e6f5ed;opacity:1}
+main{max-width:980px;margin-top:-43px;gap:16px;padding:0 16px 50px;position:relative}
+.panel{border:1px solid #e8eee8;border-radius:22px;box-shadow:0 8px 30px #183b2b0d;padding:22px}
+.bar h2{font-size:clamp(20px,3vw,25px);font-weight:800;letter-spacing:-.035em;color:var(--ink)}
+.bar>div{display:flex;gap:5px;align-items:center}
+button{border-radius:11px;transition:background .15s,transform .15s;background:#eef4ef;color:#245c4b}
+button:active{transform:scale(.97)}
+button:hover{background:#e0eee5}
+#prev,#next{font-size:23px;line-height:1;min-width:39px;min-height:39px;padding:6px}
+#now{min-height:39px;padding:8px 12px}
+.week{color:#87968f;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.days{gap:5px}
+.day{min-height:56px;background:#f6f9f6;border-radius:11px;color:#29483b;font-size:15px;font-weight:650;gap:3px;padding:7px 2px}
+.day.out{opacity:.26}
+.day.today{outline:2px solid #d4aa56;outline-offset:-2px}
+.day.has-event{background:#e5f3e9;border:1px solid #c5e5d0;color:#185b45}
+.day.selected,.day.selected.has-event{background:#176e58;color:white;border-color:#176e58}
+.day.selected .dot{background:#ffe0a1}
+.day .dot{width:6px;height:6px;background:#dc9b45}
+.events-head{padding-bottom:5px}
+#all{background:#f0f6f2;color:#176e58}
+.filterbar{border-bottom:1px solid var(--line);padding:10px 0 15px;margin:0 0 5px}
+.filterbar label{font-weight:750;color:#506b5d}
+.filterbar select{border:1px solid #dae7dc;background:#f7faf7;color:#294b3b;border-radius:11px;min-height:40px}
+.filterbar span{color:#70877a;font-weight:650}
+#events>.muted{font-size:13px;line-height:1.55;color:#72877c;padding:4px 0}
+.item{position:relative;display:grid;grid-template-columns:86px 62px minmax(0,1fr) auto;align-items:center;gap:14px;padding:17px 2px;border-bottom:1px solid #eaf0ea;flex-wrap:initial}
+.item:last-child{border-bottom:0}
+.item .event-thumb{grid-column:1;grid-row:1;width:86px;height:105px;border-radius:13px;object-fit:cover;object-position:top;background:#eef3ed;border:1px solid #e3eae3;box-shadow:0 3px 12px #163f2514}
+.item .date{grid-column:2;grid-row:1;min-width:0;width:62px;padding:11px 3px;border-radius:13px;background:#eaf4eb;color:#21654e}
+.item .date strong{font-size:27px;line-height:1.1;font-weight:800}
+.item .date small{font-size:12px;text-transform:uppercase;font-weight:700}
+.item .grow{grid-column:3;grid-row:1;min-width:0}
+.item .grow h3{font-size:17px;line-height:1.3;letter-spacing:-.02em;margin:5px 0 7px;color:#203c30}
+.item .grow p{font-size:13px;color:#647b70}
+.item .tag{display:inline-block;color:#1b7958;background:#edf7ee;border-radius:6px;padding:3px 7px;font-size:11px;font-weight:750}
+.item>button{grid-column:4;grid-row:1;margin:0;background:#e9f3eb;color:#1a6b50;font-size:13px;font-weight:800;min-height:40px}
+#detail{box-shadow:0 25px 85px #102b2659}
+.detail-head{background:linear-gradient(125deg,#e6f4ea,#fff)}
+.detail-head h2{color:#173d2e}
+#detailText .poster{max-height:440px}
+.save-calendar{background:#176e58!important;color:white!important}
+@media(max-width:680px){
+ header{padding:28px 18px 67px}
+ main{margin-top:-37px;padding:0 12px 32px;gap:12px}
+ .panel{padding:16px;border-radius:19px}
+ .bar h2{font-size:20px}
+ .day{min-height:47px;border-radius:9px;font-size:14px}
+ .item{grid-template-columns:68px minmax(0,1fr) auto;gap:11px;padding:14px 0}
+ .item .event-thumb{grid-column:1;grid-row:1/3;width:68px;height:90px;border-radius:11px}
+ .item .date{grid-column:2;grid-row:1;justify-self:start;width:auto;min-width:0;padding:4px 8px;border-radius:7px;display:flex;align-items:center;gap:5px}
+ .item .date strong{font-size:15px;display:inline}
+ .item .date small{font-size:11px}
+ .item .grow{grid-column:2/4;grid-row:2}
+ .item .grow h3{font-size:15px;margin:4px 0 5px}
+ .item .grow p{font-size:12px;line-height:1.4}
+ .item>button{grid-column:3;grid-row:1;padding:7px 11px;min-height:32px;font-size:12px}
+ .item .tag{font-size:10px;padding:2px 6px}
+ .filterbar{margin-top:4px}
+}
+@media(max-width:355px){.item{grid-template-columns:57px minmax(0,1fr) auto;gap:8px}.item .event-thumb{width:57px;height:80px}.item .grow h3{font-size:14px}.bar h2{font-size:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button{transition:none}}
+</style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota</h1><p>Akce a setkání v naší obci na jednom místě.</p></div></header><main>
 <section class="panel"><div class="bar"><h2 id="month"></h2><div><button id="prev" aria-label="Předchozí měsíc">‹</button><button id="now">Dnes</button><button id="next" aria-label="Následující měsíc">›</button></div></div><div class="week"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div><div class="days" id="days"></div></section>
 <section class="panel"><div class="bar events-head"><h2 id="heading">Nadcházející akce</h2><button id="all">Zrušit výběr</button></div><div class="filterbar"><label for="categoryFilter">Zobrazit</label><select id="categoryFilter"><option value="">Všechny kategorie</option><option>Kultura</option><option>Sport</option><option>Obecní</option><option>Pro děti</option><option>Ostatní</option><option>Tvoření</option><option>Obecní akce</option><option>SDH</option></select><span id="eventCount" aria-live="polite"></span></div><div id="events"></div></section>
 <section class="panel install-panel"><div class="bar"><div><b>Aplikace v telefonu</b><p class="muted">Kalendář můžeš mít přímo na ploše.</p></div><button id="installHelp">Jak nainstalovat</button><button id="installNow" class="primary" hidden>Instalovat</button></div><p class="muted" id="installTip" hidden></p></section><footer class="footer-admin"><span>Kalendář akcí Dlouhá Lhota</span><button id="login" aria-label="Přihlášení správce">Správa</button><span id="status" class="sr-only" aria-live="polite">Veřejný režim</span><div id="admin" hidden><button class="primary" id="add">+ Přidat akci</button><button id="logout">Odhlásit</button></div></footer></main>
