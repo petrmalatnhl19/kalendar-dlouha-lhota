@@ -436,6 +436,42 @@ button{touch-action:manipulation}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
+
+/* Community visual refinement v15 — warm, clean event cards */
+#eventsSection{border-color:#e4ede5}
+#eventsSection .events-head h2{font-size:clamp(20px,4.8vw,25px);letter-spacing:-.035em;line-height:1.2}
+#eventsSection .filterbar{padding:9px 0 13px;margin-top:8px;gap:8px;border-color:#e9eee7}
+#eventsSection .filterbar select{border:1px solid #d8e7dc;border-radius:11px;background:#f6faf5;color:#275d50;font-weight:650;max-width:100%}
+#eventsSection #eventCount{font-weight:700;color:#6b8174}
+#events{display:grid;gap:11px;padding-top:13px}
+#events .item{position:relative;margin:0;padding:12px;border:1px solid #e3ece4;border-radius:17px;background:#fff;box-shadow:0 3px 12px rgba(34,71,49,.045);transition:border-color .16s,box-shadow .16s;min-width:0}
+#events .item:last-child{border:1px solid #e3ece4}
+#events .item:hover{border-color:#bad6c5;box-shadow:0 6px 18px rgba(34,71,49,.085)}
+#events .item .event-thumb{border-radius:10px;border-color:#e8eee7;box-shadow:none;background:#fafbf8}
+#events .item .date{background:#f0f7ee;color:#2e6c50;border-radius:10px;padding:5px 9px;min-width:0;width:max-content;max-width:100%;font-size:12px}
+#events .item .date strong{font-size:20px;line-height:1.1}
+#events .item .tag{font-size:10px;font-weight:800;letter-spacing:.035em;text-transform:uppercase;color:#48836b}
+#events .item .grow h3{margin:4px 0 5px;color:#1d3c32;line-height:1.27;letter-spacing:-.02em;font-size:16px}
+#events .item .grow p{font-size:12px;color:#63786c;line-height:1.45}
+#events .item>button{border:1px solid #cfe5d6;background:#eaf5ec;color:#206d4c;border-radius:10px;font-weight:800;min-height:37px}
+#events .item>button:active{background:#d9eddd}
+.quick-nav button{border-radius:15px;letter-spacing:-.015em}
+.quick-nav button[aria-pressed="true"]{box-shadow:0 3px 9px rgba(26,96,64,.15)}
+.next-event{border-radius:17px}
+@media(max-width:480px){
+ #events{gap:9px;padding-top:10px}
+ #events .item{padding:10px;grid-template-columns:96px minmax(0,1fr);column-gap:10px}
+ #events .item .event-thumb{width:96px;max-height:136px}
+ #events .item .grow h3{font-size:15px}
+ #events .item .date strong{font-size:18px}
+ #events .item>button{font-size:12px;padding:7px 10px;min-height:35px}
+}
+@media(max-width:360px){
+ #events .item{grid-template-columns:79px minmax(0,1fr);column-gap:8px;padding:9px}
+ #events .item .event-thumb{width:79px;max-height:117px}
+ #events .item .grow h3{font-size:14px}
+ #events .item .grow p{font-size:11px}
+}
 </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota žije!</h1><p>Objevte, co se u nás chystá. Akce a setkání na jednom místě.</p></div></header><main>
 <nav class="quick-nav" aria-label="Rychlá navigace"><button type="button" id="goEvents" aria-pressed="true">🎉 Akce</button><button type="button" id="goCalendar" aria-pressed="false">📅 Kalendář</button></nav>
 <div class="next-event" id="nextEvent" hidden aria-live="polite"><div class="next-copy"><div class="next-label">Nejbližší akce</div><div class="next-title" id="nextEventTitle"></div><div class="next-date" id="nextEventDate"></div></div><button type="button" id="nextEventDetail">Detail</button></div>
