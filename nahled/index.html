@@ -472,6 +472,25 @@ button{touch-action:manipulation}
  #events .item .grow h3{font-size:14px}
  #events .item .grow p{font-size:11px}
 }
+
+/* Community detail polish v16 — compact content, quiet footer, balanced actions */
+#detail[open]{height:max-content;max-height:calc(100dvh - 68px)}
+#detailText{flex:0 1 auto;min-height:0;overflow-y:auto;padding-bottom:14px;scrollbar-width:none}
+#detailText::-webkit-scrollbar{display:none}
+#detailFooter{border-top:1px solid #edf1e9;box-shadow:none;background:#fffefa;padding-top:12px}
+#detailFooter .detail-actions{gap:10px}
+#detailFooter .detail-actions button{border-radius:13px;min-height:49px;font-weight:750;box-shadow:none;transition:background .15s ease}
+#detailFooter .save-calendar{background:#19765e;color:#fff}
+#detailFooter .map-button{background:#f9eed9;color:#72562d}
+#detailFooter .save-calendar:active{background:#145e4c}
+#detailFooter .map-button:active{background:#f0dfbf}
+#detailText .detail-description{margin-bottom:0;line-height:1.55}
+@media(max-width:480px){
+ #detailFooter{padding:11px 14px max(12px,env(safe-area-inset-bottom,0px))}
+ #detailFooter .detail-actions{gap:9px}
+ #detailFooter .detail-actions button{min-height:49px;font-size:12px;padding:9px 6px}
+ #detailText{padding-bottom:14px}
+}
 </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota žije!</h1><p>Objevte, co se u nás chystá. Akce a setkání na jednom místě.</p></div></header><main>
 <nav class="quick-nav" aria-label="Rychlá navigace"><button type="button" id="goEvents" aria-pressed="true">🎉 Akce</button><button type="button" id="goCalendar" aria-pressed="false">📅 Kalendář</button></nav>
 <div class="next-event" id="nextEvent" hidden aria-live="polite"><div class="next-copy"><div class="next-label">Nejbližší akce</div><div class="next-title" id="nextEventTitle"></div><div class="next-date" id="nextEventDate"></div></div><button type="button" id="nextEventDetail">Detail</button></div>
