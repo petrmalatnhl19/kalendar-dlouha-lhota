@@ -233,6 +233,36 @@ button:focus-visible{outline:3px solid var(--community-honey);outline-offset:2px
  .item>button{margin-top:8px}
 }
 @media(max-width:360px){.item{grid-template-columns:83px minmax(0,1fr);column-gap:9px}.item .event-thumb{width:83px;height:119px}.item .grow h3{font-size:14px}}
+
+/* Community detail v3: accessible scroll, larger uncropped poster, compact metadata */
+#detail{display:none;padding:0;max-height:min(88dvh,850px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;background:#fffefa}
+#detail[open]{display:block}
+#detail .detail-head{position:sticky;top:0;z-index:3;padding:16px 19px 13px;background:linear-gradient(125deg,#e8f5eb,#fffefa);box-shadow:0 1px 0 #e1e9e2}
+#detail .detail-head h2{font-size:clamp(20px,4.6vw,25px);line-height:1.22;margin-top:8px}
+#detail .detail-head .tag{font-size:12px;padding:5px 10px}
+#detailText{padding:14px 19px max(22px,env(safe-area-inset-bottom,0px))}
+#detailText .event-meta{display:grid;grid-template-columns:110px minmax(0,1fr);gap:0;overflow:hidden;background:#f3f8f2;border:1px solid #e6eee6;border-radius:13px;margin:0 0 14px}
+#detailText .meta-line{background:transparent;border-radius:0;padding:10px 12px;font-size:14px;line-height:1.4}
+#detailText .meta-line:first-child{grid-column:1 / -1;border-bottom:1px solid #e2ebe3}
+#detailText .meta-line:nth-child(2){border-right:1px solid #e2ebe3}
+#detailText .meta-line:nth-child(3){min-width:0;overflow-wrap:anywhere}
+#detailText .poster-open{width:100%;border-radius:14px;background:#f8f9f4;border:1px solid #e6ece6}
+#detailText .poster-open .poster{width:100%;height:auto;max-height:420px;object-fit:contain;object-position:center;margin:0;background:#f8f9f4}
+#detailText .poster-open-label{padding:9px 12px;font-size:13px}
+#detailText .detail-description{margin:13px 0!important;font-size:14px;line-height:1.55}
+#detailText .detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+#detailText .detail-actions button{min-height:46px;padding:10px 8px;font-size:13px}
+#detailText .detail-actions .save-calendar{box-shadow:none}
+@media(max-width:480px){
+ #detail{width:calc(100% - 24px);max-height:calc(100dvh - 68px);border-radius:22px}
+ #detail .detail-head{padding:15px 17px 12px}
+ #detailText{padding:13px 17px max(22px,env(safe-area-inset-bottom,0px))}
+ #detailText .event-meta{grid-template-columns:96px minmax(0,1fr)}
+ #detailText .meta-line{font-size:13px;padding:9px 10px}
+ #detailText .poster-open .poster{max-height:52dvh}
+ #detailText .detail-actions{grid-template-columns:1fr}
+ #detailText .detail-actions button{min-height:45px;font-size:14px}
+}
 </style></head><body><header><div><small>OBECNÍ KALENDÁŘ</small><h1>Dlouhá Lhota žije!</h1><p>Objevte, co se u nás chystá. Akce a setkání na jednom místě.</p></div></header><main>
 <section class="panel"><div class="bar"><h2 id="month"></h2><div><button id="prev" aria-label="Předchozí měsíc">‹</button><button id="now">Dnes</button><button id="next" aria-label="Následující měsíc">›</button></div></div><div class="view-switch" role="group" aria-label="Zobrazení kalendáře"><button type="button" id="weekView" aria-pressed="true">Týden</button><button type="button" id="monthView" aria-pressed="false">Měsíc</button></div><div class="week"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div><div class="days" id="days"></div></section>
 <section class="panel"><div class="bar events-head"><h2 id="heading">Nadcházející akce</h2><button id="all">Zrušit výběr</button></div><div class="filterbar"><label for="categoryFilter">Zobrazit</label><select id="categoryFilter"><option value="">Všechny kategorie</option><option>Kultura</option><option>Sport</option><option>Obecní</option><option>Pro děti</option><option>Ostatní</option><option>Tvoření</option><option>Obecní akce</option><option>SDH</option></select><span id="eventCount" aria-live="polite"></span></div><div id="events"></div></section>
