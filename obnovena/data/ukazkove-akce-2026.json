@@ -1,0 +1,36 @@
+[
+  {
+    "id": "vanoce-vence-2026",
+    "title": "Výroba vánočních věnců a svícnů",
+    "starts_at": "2026-11-20T17:00:00+01:00",
+    "location": "Kulturní dům, Dlouhá Lhota",
+    "category": "Tvoření",
+    "description": "Společné tvoření vánočních věnců a svícnů. Větve a teplé občerstvení zajištěny.",
+    "poster_source": "1000018729.jpg",
+    "visibility": "public",
+    "poster_url": "https://raw.githubusercontent.com/petrmalatnhl19/kalendar-dlouha-lhota/feature/sjednoceni-vzhledu-a-funkci/posters/vanocni_vence_2026.jpg"
+  },
+  {
+    "id": "rozsviceni-stromku-2026",
+    "title": "Rozsvícení vánočního stromku",
+    "starts_at": "2026-11-29T17:30:00+01:00",
+    "location": "Před kulturním domem, Dlouhá Lhota",
+    "category": "Obecní akce",
+    "description": "Slavnostní rozsvícení vánočního stromku za doprovodu kláves. Přijďte přivítat vánoční čas.",
+    "poster_source": "1000018728.jpg",
+    "visibility": "public",
+    "poster_url": "https://raw.githubusercontent.com/petrmalatnhl19/kalendar-dlouha-lhota/feature/sjednoceni-vzhledu-a-funkci/posters/rozsviceni_stromku_2026.jpg"
+  },
+  {
+    "id": "sdh-schuze-2026",
+    "title": "Výroční hasičská schůze SDH Dlouhá Lhota",
+    "starts_at": "2026-12-04T19:00:00+01:00",
+    "location": "Hospoda v Dlouhé Lhotě",
+    "category": "SDH",
+    "description": "Výroční schůze SDH: hodnocení uplynulé sezóny a plán na další období. Občerstvení zajištěno.",
+    "poster_source": "1000018730.jpg",
+    "visibility": "public",
+    "audience": "Především členové SDH; pozvánka vítá také další zájemce.",
+    "poster_url": "https://raw.githubusercontent.com/petrmalatnhl19/kalendar-dlouha-lhota/feature/sjednoceni-vzhledu-a-funkci/posters/sdh_schuze_2026.jpg"
+  }
+]
